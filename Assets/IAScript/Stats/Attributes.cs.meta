@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2f5415ccf68e9df4aa9f77f1d1010bf6
+timeCreated: 1481291143
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - nest: {instanceID: 0}
+  - lifebar: {fileID: 115232, guid: 1baf02536c52eab479d2c682e426bea5, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 07b44baf9805c23489233142be4204ce
+timeCreated: 1538997278
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - textSelector: {instanceID: 0}
+  - selectionImage: {instanceID: 0}
+  - selectionSquare: {instanceID: 0}
+  - cursorTexture: {fileID: 2800000, guid: 09d2e5e144ffd754d9dcaa0609af0771, type: 3}
+  - collectTexture: {fileID: 2800000, guid: bb0166f27c498da4c841c928b22a8a86, type: 3}
+  - sunPower: {fileID: 2800000, guid: 9e30064a6a51ff245bec25637cb7baa2, type: 3}
+  - rainPower: {fileID: 2800000, guid: b9d56862688c7d84a9fe2b06fd3b5596, type: 3}
+  - nbFruit: {instanceID: 0}
+  - nbWood: {instanceID: 0}
+  - nbPollen: {instanceID: 0}
+  - nbStone: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

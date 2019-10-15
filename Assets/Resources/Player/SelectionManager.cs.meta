@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e1fb1a198ca7d2548a46560c37ed302b
+timeCreated: 1538997731
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blueprint: {instanceID: 0}
+  - normalCursor: {fileID: 2800000, guid: 0240089c8c8a90048819b258d10e4cb5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

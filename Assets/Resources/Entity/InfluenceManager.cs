@@ -92,7 +92,7 @@ public class InfluenceManager : MonoBehaviour {
 			Debug.Log ("Une créature est maintenant sous votre influence !  : " + att.name);
             influence = 0;
             influenceBar.SetActive(false);
-            //Mettre en place le système de posséssion
+            //Mettre en place le système de possession
 
             GameObject.Find("Player").GetComponent<Player>().addCreature(gameObject);
         }

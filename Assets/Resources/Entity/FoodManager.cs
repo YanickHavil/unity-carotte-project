@@ -43,11 +43,6 @@ public class FoodManager : MonoBehaviour {
 				att.setHungry(true);
 
 				if(!att.isWorking() && !att.isFighting()){
-					if(att.nest != null){
-						if(att.nest.GetComponent<Nest>().food > 0){
-
-						}
-					}
 					else{
 						Debug.Log ("try to find food");
 
@@ -86,6 +81,19 @@ public class FoodManager : MonoBehaviour {
 				changeFoodTarget(stats.nest);
 			}
 		}*/
+
+
+        //Si la créature est au joueur, elle doit se nourrir dans ses réserves
+        if(att.numPlayer == 1)
+        {
+            //Fonction qui cherchent dans les réserves de stockpiles
+            //att.getPlayer().
+        }
+        else
+        {
+
+        }
+
 		if (Foodtarget == null) {
 			
 			Tile t;

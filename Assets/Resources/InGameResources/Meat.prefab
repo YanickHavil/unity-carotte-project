@@ -77,7 +77,7 @@ MonoBehaviour:
   spriteEmpty: {fileID: 0}
   autoTaskTake: 0
   regrow: 0
-  difficultyCollect: 1
+  difficultyCollect: 2
   regrowableResource: {fileID: 0}
   spoilage: 1
 --- !u!114 &114962353986450620

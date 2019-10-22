@@ -231,10 +231,11 @@ public class Attributes : MonoBehaviour {
 		//GameObject selectionP = Instantiate(Resources.Load("UI/SelectionPanel") as GameObject,v3, Quaternion.Euler(new Vector3(0,0,0))) as GameObject;
 
 		GameObject.Find("Player").GetComponent<Player>().setSelection(gameObject);
-		if (tag == "Nest") {
+        /*
+        if (tag == "Nest") {
 			GetComponent<Nest>().showTerritory();
 		}
-
+        */
 	}
 
 	public void receivedDamage(int damage, GameObject gameObject){

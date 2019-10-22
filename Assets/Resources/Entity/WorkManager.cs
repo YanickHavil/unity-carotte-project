@@ -506,6 +506,7 @@ public class WorkManager : MonoBehaviour {
 				} 
 
 			}
+            /*
 			if(att.nest ==null){
 				if(player.getTemple() != null && phase3){
 					if(other.gameObject == player.getTemple().gameObject){
@@ -527,8 +528,8 @@ public class WorkManager : MonoBehaviour {
 							removeTaskNest(att.nest);
 						}
 					}
-				}*/
-			}
+				}
+			}*/
 
 			
 			

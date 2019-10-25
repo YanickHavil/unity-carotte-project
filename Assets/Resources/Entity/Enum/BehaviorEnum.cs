@@ -6,5 +6,6 @@ public enum BehaviorEnum {
 	Solitary,
 	Nest,
 	Friendly,
+    Herd,
 
 };

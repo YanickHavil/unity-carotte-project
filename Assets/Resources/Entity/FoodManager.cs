@@ -13,7 +13,7 @@ public class FoodManager : MonoBehaviour {
 
 	GameObject Foodtarget; // Cible pour manger
 	GameObject CollectTarget;
-
+    Player p;
 	TileMap map;
 	MovementManager mvt;
 
@@ -23,6 +23,7 @@ public class FoodManager : MonoBehaviour {
 		mvt = GetComponent<MovementManager> ();
 		InvokeRepeating ("foodManager",1,5 );
 		map = att.getMap ();
+        p = GameObject.Find("Player").GetComponent<Player>(); 
 	}
 	
 	// Update is called once per frame
@@ -43,8 +44,11 @@ public class FoodManager : MonoBehaviour {
 				att.setHungry(true);
 
 				if(!att.isWorking() && !att.isFighting()){
-					else{
+					{
 						Debug.Log ("try to find food");
+
+
+
 
 						if (vegetarian) {
 
@@ -87,7 +91,18 @@ public class FoodManager : MonoBehaviour {
         if(att.numPlayer == 1)
         {
             //Fonction qui cherchent dans les réserves de stockpiles
-            //att.getPlayer().
+            foreach(TypeResource res in foodTypes)
+            {
+
+                GameObject foodtemp = p.getFoodinStock(res);
+                if (foodtemp != null)
+                {
+                    changeEatTarget(foodtemp);
+                    return;
+                }
+            }            
+
+
         }
         else
         {

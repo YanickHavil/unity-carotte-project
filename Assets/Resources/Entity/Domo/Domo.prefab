@@ -91,6 +91,8 @@ MonoBehaviour:
   idle: 1
   move: 0
   lifebar: {fileID: 0}
+  behavior: 0
+  herdList: []
 --- !u!114 &114402307388135406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +127,7 @@ MonoBehaviour:
   Maxlife: 10
   MaxHunger: 15
   rayVision: 6
-  behavior: 0
+  behavior: 3
   minimumDamage: 1
   maximumDamage: 2
   ranged: 0

@@ -41,13 +41,21 @@ public class MenuButton : MonoBehaviour {
 		*/
 	}
 
-	void setTypeMenu(){
-		if (gameObject.name == "BuildingButton") {
-			menu = TypeMenu.BUILDING;
-		} else if (gameObject.name == "PowerButton") {
-			menu = TypeMenu.POWER;
-		} 
-	}
+    void setTypeMenu()
+    {
+        if (gameObject.name == "BuildingButton")
+        {
+            menu = TypeMenu.BUILDING;
+        }
+        else if (gameObject.name == "PowerButton")
+        {
+            menu = TypeMenu.POWER;
+        }
+        else if (gameObject.name == "CreatureButton")
+        {
+            menu = TypeMenu.CREATURE;
+        }
+    }
 
 	public void setExtend(GameObject g){
 		panelExtendIcon = g;

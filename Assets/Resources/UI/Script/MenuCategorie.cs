@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class MenuCategorie{
 
@@ -35,8 +37,23 @@ public class MenuCategorie{
 				buttonAvailable[i] = isAvailable(t,i);
 			}
 			break;
+        case TypeMenu.CREATURE:
 
-		default:
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                    List<GameObject> listemp = player.getCreatures();
+
+                    if(player.haveCreature() && listemp.Count > i)
+                    {
+                        buttons[i] = listemp[i].GetComponentInChildren<SpriteRenderer>().sprite;
+                    }
+
+                //buttons[i] = Resources.Load<Sprite>("UI/Buttons/ButtonCreature" + i.ToString());
+                buttonAvailable[i] = isAvailable(t, i);
+            }
+            break;
+
+            default:
 			break;
 
 		}
@@ -115,12 +132,54 @@ public class MenuCategorie{
 				
 				return false;
 			}
-		
+        case TypeMenu.CREATURE:
 
-			
-		
-			
-		default:
+            switch (i)
+            {
+
+                case 0:
+
+                        return true;
+
+                case 1:
+                    if (player.haveBuilding("Temple"))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case 2:
+                    if (player.haveBuilding("Temple") && player.haveMana(25))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case 3:
+                    if (player.haveBuilding("Temple") && player.haveMana(25))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                default:
+
+                    return false;
+            }
+
+
+
+
+            default:
 			return false;
 			
 		}
@@ -157,9 +216,11 @@ public class MenuCategorie{
                 break;
                 }
 			break;
+        case TypeMenu.CREATURE:
+                
+                break;
 
-
-		default :
+        default :
 			break;
 		}
 
@@ -189,8 +250,15 @@ public class MenuCategorie{
 				buttonAvailable[i] = isAvailable(type,i);
 			}
 			break;
-			
-		default:
+
+        case TypeMenu.CREATURE:
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttonAvailable[i] = isAvailable(type, i);
+            }
+            break;
+
+            default:
 			break;
 			
 		}

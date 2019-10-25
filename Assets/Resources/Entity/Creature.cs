@@ -12,7 +12,8 @@ public class Creature : MonoBehaviour {
 	Player player;
 	public GameObject enemy = null;
 	public GameObject sprite;
-	Spec carac;
+
+    Spec carac;
 	UnityEngine.AI.NavMeshAgent agent;
 	Attributes att;
 	MovementManager movement;
@@ -37,6 +38,7 @@ public class Creature : MonoBehaviour {
 
 
         //Debug.Log("Entity/" + att.name.ToString() + "/" + att.name.ToString() + "Sprite");
+        //Ajout du Sprite manager
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         spriteManager = Instantiate(sprite, Vector3.zero, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
         spriteManager.transform.parent = gameObject.transform;
@@ -44,6 +46,8 @@ public class Creature : MonoBehaviour {
         spriteManager.transform.localPosition = new Vector3(0, 0, 0);//Vector3.zero;
         spriteManager.transform.localScale = new Vector3(1, 1, 1);
 
+
+        //Ajout de la barre de vie
         GameObject lifebar = Instantiate(Resources.Load("UI/HealthBar"), Vector3.zero, Quaternion.Euler(new Vector3(-90f, 0, 0))) as GameObject;
         lifebar.transform.parent = transform;
         lifebar.transform.localPosition = new Vector3(0, 0, 0.22f);
@@ -59,10 +63,13 @@ public class Creature : MonoBehaviour {
 
         lifebar.SetActive(false);
 
-
+        //Ajout des scrits de gestion IA
         movement = gameObject.AddComponent<MovementManager>();
         work = gameObject.AddComponent<WorkManager>();
         influM = gameObject.AddComponent<InfluenceManager>();
+
+        //Ajout du type de comportement
+        att.behavior = carac.behavior;
 
         //Special Behavior algo
         String str = att.name + "Behavior";
@@ -86,9 +93,12 @@ public class Creature : MonoBehaviour {
 		//foodManager.typeOfFood = carac.TypeOfFood;
 
 		combatManager = gameObject.AddComponent<CombatManager> ();
-		//Ajout de l'attaque de base celon spec
+
+		//Ajout de l'attaque de base selon spec
 		combatManager.basicatk = new BasicAttack (carac.minimumDamage, carac.maximumDamage, carac.ranged, carac.cooldown);
 		player = GameObject.Find ("Player").GetComponent<Player>();
+
+
 
         //Instanciation liste abilities
         att.setListAbilities();

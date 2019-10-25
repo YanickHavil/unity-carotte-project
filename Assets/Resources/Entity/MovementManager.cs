@@ -42,28 +42,68 @@ public class MovementManager : MonoBehaviour {
 
 	public void ForceRandomMove()
 	{
+        if (att.behavior == BehaviorEnum.Herd)
+        {
+            if (tokenMove)
+            {
+                GameObject leaderHerd = att.herdList[0];
+                resumeMovement();
+                float posX = Random.Range(leaderHerd.transform.position.x - 1.5f, leaderHerd.transform.position.x + 1.5f);
+                float posY = Random.Range(leaderHerd.transform.position.z - 1.5f, leaderHerd.transform.position.z + 1.5f);
+                tokenMove = false;
 
-		resumeMovement();
-		float posX = Random.Range (gameObject.transform.position.x - 5.0f, gameObject.transform.position.x + 5.0f);
-		float posY = Random.Range (gameObject.transform.position.z - 5.0f, gameObject.transform.position.z + 5.0f);
-		tokenMove = false;
-		
-		moveTo(posX,posY);
+                moveTo(posX, posY);
+
+
+            }
+        }
+        else
+        {
+            resumeMovement();
+            float posX = Random.Range(gameObject.transform.position.x - 5.0f, gameObject.transform.position.x + 5.0f);
+            float posY = Random.Range(gameObject.transform.position.z - 5.0f, gameObject.transform.position.z + 5.0f);
+            tokenMove = false;
+
+            moveTo(posX, posY);
+        }
+
+
 			
 			
 		
 	}
 	void randomMove(float x, float y){
-		if (tokenMove) {
-			resumeMovement();
-			float posX = Random.Range (x - 1.5f, x + 1.5f);
-			float posY = Random.Range (y - 1.5f, y + 1.5f);
-			tokenMove = false;
-			
-			moveTo(posX,posY);
-			
-			
-		}
+        if(att.behavior == BehaviorEnum.Herd)
+        {
+            if (tokenMove)
+            {
+                //Debug.Log("random move listherd 0 : " + att.herdList[0]);
+                GameObject leaderHerd = att.herdList[0];
+                resumeMovement();
+                float posX = Random.Range(leaderHerd.transform.position.x - 1.5f, leaderHerd.transform.position.x + 1.5f);
+                float posY = Random.Range(leaderHerd.transform.position.z - 1.5f, leaderHerd.transform.position.z + 1.5f);
+                tokenMove = false;
+
+                moveTo(posX, posY);
+
+
+            }
+        }
+        else
+        {
+            if (tokenMove)
+            {
+                resumeMovement();
+                float posX = Random.Range(x - 1.5f, x + 1.5f);
+                float posY = Random.Range(y - 1.5f, y + 1.5f);
+                tokenMove = false;
+
+                moveTo(posX, posY);
+
+
+            }
+        }
+
 		
 	}
 

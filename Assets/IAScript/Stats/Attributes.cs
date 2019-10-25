@@ -51,13 +51,17 @@ public class Attributes : MonoBehaviour {
 
 	public GameObject lifebar = null;
 
+    //Behavior
+    public BehaviorEnum behavior;
+
+
+    //Troupeau
+    public List<GameObject> herdList = new List<GameObject>();
 
 
 
-
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		map = GameObject.Find ("TileMap").GetComponent<TileMap> ();
 		invent = new Inventory ();
 
@@ -92,7 +96,14 @@ public class Attributes : MonoBehaviour {
 	void Entitydie(){
 		//Drop
 		drop();
-		Destroy (gameObject);
+        //Si troupeau 
+        if(behavior == BehaviorEnum.Herd)
+        {
+            dieInHerd();
+
+        }
+
+		DestroyImmediate (gameObject);
 
 		//Placer le drop
 
@@ -178,7 +189,7 @@ public class Attributes : MonoBehaviour {
     void OnMouseDown(){
         GameObject player = GameObject.Find("Player");
 
-        if (player.GetComponent<SelectionManager>().inSelectionPower && player.GetComponent<ManaManager>().mana > 25)
+        if (player.GetComponent<SelectionManager>().inSelectionPower && player.GetComponent<ManaManager>().mana > 25  && tag == "Creature" )
         {
             GameObject effect = null;
             if (player.GetComponent<SelectionManager>().influType == InfluenceType.SUN)
@@ -206,7 +217,7 @@ public class Attributes : MonoBehaviour {
             effect.transform.localRotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
             GetComponent<InfluenceManager>().tryInfluence(GameObject.Find("Player").GetComponent<SelectionManager>().influType);
             player.GetComponent<ManaManager>().mana -= 25;
-            //Instancier l'animation
+           
 
         }
 		else if (!EventSystem.current.IsPointerOverGameObject ()) {
@@ -508,6 +519,22 @@ public class Attributes : MonoBehaviour {
 		Tile t = getCurrentTile ();
 		map.changeTile (t.x, t.y, EnumTypeTile.EARTH);
 	}
+
+
+    //Fonction pour la gestion de la liste des troupeaux
+
+    void dieInHerd()
+    {
+        int indexList = herdList.IndexOf(gameObject);
+        herdList.Remove(gameObject);
+
+        
+        if (indexList == 0)
+        {
+
+        }
+    }
+
 	/*
 	public void setIdle(bool b){
 		idle = b;

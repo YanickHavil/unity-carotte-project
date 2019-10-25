@@ -108,4 +108,20 @@ public class StockpileScript : MonoBehaviour{
 		return res;
 	}
 
+    public GameObject getFood(TypeResource type)
+    {
+        foreach (Tile t in tiles)
+        {
+            if (t.staticEntity != null)
+            {
+                if (t.staticEntity.GetComponent<ResourceManager>().type == type)
+                {
+                    return t.staticEntity;
+                }
+            }
+
+        }
+        return null;
+    }
+
 }
